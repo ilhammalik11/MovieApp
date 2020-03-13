@@ -35,7 +35,7 @@ class UserReviewInteractor: UserReviewBusinessLogic, UserReviewDataStore
   {
     worker = UserReviewWorker()
     worker?.interactor = self
-    worker?.fetch(url:url,request: request) { result  in
+    worker?.fetch(request: request) { result  in
         if result != nil {
             self.data = result!
             let response = UserReview.Model.Response(data: result!)

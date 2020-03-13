@@ -14,6 +14,7 @@ import UIKit
 protocol DetailMovieBusinessLogic
 {
   func doModel(request: DetailMovie.Model.Request)
+  func doModelVideo(request: DetailMovie.Model.Request)
 }
 
 protocol DetailMovieDataStore
@@ -35,7 +36,7 @@ class DetailMovieInteractor: DetailMovieBusinessLogic, DetailMovieDataStore
   {
     worker = DetailMovieWorker()
     worker?.interactor = self
-    worker?.fetch(url:url,request: request) { result  in
+    worker?.fetch(request: request) { result  in
         if result != nil {
             self.data = result!
             let response = DetailMovie.Model.Response(data: result!)
@@ -43,4 +44,17 @@ class DetailMovieInteractor: DetailMovieBusinessLogic, DetailMovieDataStore
         }
     }
   }
+    
+  func doModelVideo(request: DetailMovie.Model.Request)
+ {
+   worker = DetailMovieWorker()
+   worker?.interactor = self
+   worker?.fetchVideo(request: request) { result  in
+       if result != nil {
+           self.data = result!
+           let response = DetailMovie.Model.Response(data: result!)
+           self.presenter?.presentModel(response: response)
+       }
+   }
+ }
 }

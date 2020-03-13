@@ -18,7 +18,10 @@ enum UserReview
   
   enum Model
   {
-    struct Request {}
+    struct Request {
+         var id : Int
+         var page : Int
+    }
     struct Response : Codable
     {
         var data: UserReview.Model.Fetch.Data
@@ -30,9 +33,25 @@ enum UserReview
     }
 
     enum Fetch {
+       // MARK: - Welcome
         struct Data: Codable {
-            
+            let id, page: Int?
+            let results: [Result]?
+            let totalPages, totalResults: Int?
+
+            enum CodingKeys: String, CodingKey {
+                case id, page, results
+                case totalPages = "total_pages"
+                case totalResults = "total_results"
+            }
         }
+
+        // MARK: - Result
+        struct Result: Codable {
+            let author, content, id: String?
+            let url: String?
+        }
+
     }
   }
 }

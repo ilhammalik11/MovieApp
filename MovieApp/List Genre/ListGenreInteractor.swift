@@ -35,7 +35,7 @@ class ListGenreInteractor: ListGenreBusinessLogic, ListGenreDataStore
   {
     worker = ListGenreWorker()
     worker?.interactor = self
-    worker?.fetch(url:url,request: request) { result  in
+    worker?.fetch(request: request) { result  in
         if result != nil {
             self.data = result!
             let response = ListGenre.Model.Response(data: result!)

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomView" customModule="MovieApp" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="OLg-GF-Bxh" id="eyX-dc-jw4"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="OLg-GF-Bxh">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty_data_set" translatesAutoresizingMaskIntoConstraints="NO" id="6Gf-sr-8XR" customClass="empty_data_set">
+                    <rect key="frame" x="20" y="20" width="335" height="627"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="6Gf-sr-8XR" secondAttribute="bottom" constant="20" symbolic="YES" id="5FH-6o-fTB"/>
+                <constraint firstAttribute="trailing" secondItem="6Gf-sr-8XR" secondAttribute="trailing" constant="20" symbolic="YES" id="8Eu-hz-1ed"/>
+                <constraint firstItem="6Gf-sr-8XR" firstAttribute="leading" secondItem="OLg-GF-Bxh" secondAttribute="leading" constant="20" symbolic="YES" id="it0-J3-vKj"/>
+                <constraint firstItem="6Gf-sr-8XR" firstAttribute="top" secondItem="OLg-GF-Bxh" secondAttribute="top" constant="20" symbolic="YES" id="s2W-fC-rUP"/>
+            </constraints>
+            <point key="canvasLocation" x="-113" y="-69"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="empty_data_set" width="800" height="600"/>
+    </resources>
+</document>

@@ -11,9 +11,9 @@
 
 import UIKit
 
-@objc protocol ListMovieRoutingLogic
+protocol ListMovieRoutingLogic
 {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+  func routeToDetail(data: ListMovie.Model.Fetch.Result)
 }
 
 protocol ListMovieDataPassing
@@ -28,32 +28,22 @@ class ListMovieRouter: NSObject, ListMovieRoutingLogic, ListMovieDataPassing
   
   // MARK: Routing
   
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
+  func routeToDetail(data: ListMovie.Model.Fetch.Result)
+  {
+   
+      let storyboard = UIStoryboard(name: "Main", bundle: nil)
+      let destinationVC = storyboard.instantiateViewController(withIdentifier: "DetailMovieViewController") as! DetailMovieViewController
+          destinationVC.data = data
+      navigateToDetail(source: viewController!, destination: destinationVC)
+  }
 
   // MARK: Navigation
   
-  //func navigateToSomewhere(source: ListMovieViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
+  func navigateToDetail(source: ListMovieViewController, destination: DetailMovieViewController)
+  {
+    source.present(destination, animated: false, completion: nil)
+  }
   
   // MARK: Passing data
   
-  //func passDataToSomewhere(source: ListMovieDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
 }

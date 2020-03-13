@@ -35,7 +35,7 @@ class OverViewInteractor: OverViewBusinessLogic, OverViewDataStore
   {
     worker = OverViewWorker()
     worker?.interactor = self
-    worker?.fetch(url:url,request: request) { result  in
+    worker?.fetch(request: request) { result  in
         if result != nil {
             self.data = result!
             let response = OverView.Model.Response(data: result!)

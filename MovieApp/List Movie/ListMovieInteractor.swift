@@ -35,7 +35,7 @@ class ListMovieInteractor: ListMovieBusinessLogic, ListMovieDataStore
   {
     worker = ListMovieWorker()
     worker?.interactor = self
-    worker?.fetch(url:url,request: request) { result  in
+    worker?.fetch(request: request) { result  in
         if result != nil {
             self.data = result!
             let response = ListMovie.Model.Response(data: result!)
